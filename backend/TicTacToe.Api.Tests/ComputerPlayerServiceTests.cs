@@ -74,7 +74,7 @@ public class ComputerPlayerServiceTests
 
         var move = service.ChooseMove(board);
 
-        Assert.Contains(move, new[] { 0, 2, 6, 8 });
+        Assert.Contains(move, new int?[] { 0, 2, 6, 8 });
     }
 
     [Fact]
@@ -86,7 +86,7 @@ public class ComputerPlayerServiceTests
 
         var move = service.ChooseMove(board);
 
-        Assert.Contains(move, new[] { 1, 3, 5, 7 });
+        Assert.Contains(move, new int?[] { 1, 3, 5, 7 });
     }
 
     [Fact]

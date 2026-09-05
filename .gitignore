@@ -4,3 +4,5 @@
 
 /.vs
 /backend/.vs
+/backend/TicTacToe.Api.Tests/bin/Debug/net8.0
+/backend/TicTacToe.Api/bin/Debug/net8.0
