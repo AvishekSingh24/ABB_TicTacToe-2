@@ -1,0 +1,60 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 6px;
+  width: min(78vw, 340px);
+  aspect-ratio: 1 / 1;
+  padding: 6px;
+  background: var(--chalk-white-dim);
+  border-radius: 6px;
+}
+
+.cell {
+  background: var(--board-green);
+  border: none;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 150ms ease, transform 100ms ease;
+  padding: 0;
+
+  &:hover:not(:disabled) {
+    background: var(--board-green-dark);
+  }
+
+  &:focus-visible {
+    outline: 3px solid var(--chalk-white);
+    outline-offset: -3px;
+  }
+
+  &:disabled {
+    cursor: default;
+  }
+
+  &--empty:not(:disabled):active {
+    transform: scale(0.96);
+  }
+}
+
+.mark {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 9vw, 3.4rem);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.cell--x .mark {
+  color: var(--chalk-yellow);
+}
+
+.cell--o .mark {
+  color: var(--chalk-blue);
+}
+
+.cell--win {
+  background: var(--board-green-dark);
+  box-shadow: inset 0 0 0 3px var(--win-glow);
+}

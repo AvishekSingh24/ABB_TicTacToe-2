@@ -1,0 +1,11 @@
+.status {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  min-height: 1.6rem;
+}
+
+.status--done {
+  color: var(--chalk-yellow);
+}

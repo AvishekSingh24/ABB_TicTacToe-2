@@ -1,0 +1,16 @@
+<div class="history">
+  <h2 class="history__title">Move log</h2>
+  <ol class="history__list" *ngIf="moves.length; else empty">
+    <li *ngFor="let move of moves">
+      <span class="num">{{ move.moveNumber }}.</span>
+      <span class="player" [class.player--x]="move.player === 'X'" [class.player--o]="move.player === 'O'">
+        {{ move.player }}
+      </span>
+      <span class="pos">row {{ move.row + 1 }}, col {{ move.column + 1 }}</span>
+      <span class="tag" *ngIf="move.wasComputerMove">computer</span>
+    </li>
+  </ol>
+  <ng-template #empty>
+    <p class="history__empty">No moves yet — the log fills in as you play.</p>
+  </ng-template>
+</div>

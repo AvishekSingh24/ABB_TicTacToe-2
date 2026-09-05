@@ -1,0 +1,14 @@
+<div class="scoreboard" *ngIf="scoreboard">
+  <div class="tally">
+    <span class="label">X</span>
+    <span class="count">{{ scoreboard.xWins }}</span>
+  </div>
+  <div class="tally">
+    <span class="label">Draws</span>
+    <span class="count">{{ scoreboard.draws }}</span>
+  </div>
+  <div class="tally">
+    <span class="label">{{ secondPlayerLabel }}</span>
+    <span class="count">{{ scoreboard.oWins }}</span>
+  </div>
+</div>

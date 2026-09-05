@@ -1,0 +1,17 @@
+<div class="board" role="grid" aria-label="Tic tac toe board">
+  <button
+    *ngFor="let cell of cells; let i = index"
+    type="button"
+    role="gridcell"
+    class="cell"
+    [class.cell--x]="cell === 'X'"
+    [class.cell--o]="cell === 'O'"
+    [class.cell--win]="isWinningCell(i)"
+    [class.cell--empty]="cell === null"
+    [disabled]="disabled || cell !== null"
+    [attr.aria-label]="cell ? (cell + ' at cell ' + (i + 1)) : ('Empty cell ' + (i + 1))"
+    (click)="onCellClick(i)"
+  >
+    <span *ngIf="cell" class="mark">{{ cell }}</span>
+  </button>
+</div>

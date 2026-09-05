@@ -1,0 +1,13 @@
+<div class="mode-select">
+  <p class="mode-select__prompt">Chalk up a new game</p>
+  <div class="mode-select__options">
+    <button type="button" class="mode-btn" (click)="choose('TwoPlayer')">
+      <span class="mode-btn__title">Two players</span>
+      <span class="mode-btn__desc">Take turns on the same board</span>
+    </button>
+    <button type="button" class="mode-btn" (click)="choose('VsComputer')">
+      <span class="mode-btn__title">Vs. computer</span>
+      <span class="mode-btn__desc">You're X, the computer plays O</span>
+    </button>
+  </div>
+</div>

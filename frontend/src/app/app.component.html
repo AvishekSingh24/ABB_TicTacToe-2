@@ -1,0 +1,46 @@
+<main class="frame">
+  <div class="board-plane">
+    <h1 class="title">Tic Tac Toe</h1>
+
+    <ng-container *ngIf="!game; else playing">
+      <app-mode-selector (modeChosen)="startGame($event)"></app-mode-selector>
+    </ng-container>
+
+    <ng-template #playing>
+      <app-status-banner
+        [status]="game!.status"
+        [currentPlayer]="game!.currentPlayer"
+        [winner]="game!.winner"
+        [mode]="game!.mode"
+      ></app-status-banner>
+
+      <app-board
+        [cells]="game!.board"
+        [winningCells]="game!.winningCells"
+        [disabled]="busy || game!.status !== 'InProgress' || (game!.mode === 'VsComputer' && game!.currentPlayer === 'O')"
+        (cellChosen)="onCellChosen($event)"
+      ></app-board>
+
+      <app-scoreboard
+        [scoreboard]="game!.scoreboard"
+        [secondPlayerLabel]="game!.mode === 'VsComputer' ? 'Computer' : 'O'"
+      ></app-scoreboard>
+
+      <div class="actions">
+        <button type="button" class="action-btn" [disabled]="busy || !game!.canUndo" (click)="onUndo()">
+          Undo
+        </button>
+        <button type="button" class="action-btn" [disabled]="busy" (click)="onResetBoard()">
+          Reset board
+        </button>
+        <button type="button" class="action-btn action-btn--quiet" [disabled]="busy" (click)="onNewGame()">
+          New game
+        </button>
+      </div>
+
+      <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+      <app-move-history [moves]="game!.moveHistory"></app-move-history>
+    </ng-template>
+  </div>
+</main>

@@ -1,0 +1,55 @@
+// Design language: a chalkboard scorekeeper's corner. A tic-tac-toe game is,
+// at heart, a grid someone scrawls on a board — so the whole app leans into
+// that: a deep chalkboard green, chalk-white structure, warm wood framing,
+// and hand-set chalk colors for X and O instead of generic red/blue.
+
+:root {
+  --board-green: #2f4f3e;
+  --board-green-dark: #25402f;
+  --chalk-white: #f1eee3;
+  --chalk-white-dim: #cfd0c4;
+  --chalk-yellow: #e8c468;
+  --chalk-blue: #8bc0d1;
+  --wood-frame: #6b4a34;
+  --wood-frame-dark: #4f3626;
+  --charcoal: #1c2621;
+  --win-glow: #e8c468;
+
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Menlo, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--wood-frame-dark);
+  background-image:
+    repeating-linear-gradient(90deg, rgba(0, 0, 0, 0.08) 0, rgba(0, 0, 0, 0.08) 2px, transparent 2px, transparent 22px);
+  font-family: var(--font-display);
+  color: var(--chalk-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--chalk-yellow);
+  color: var(--charcoal);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
